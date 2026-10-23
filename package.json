@@ -1,0 +1,29 @@
+{
+  "name": "agentic-workflow-lab",
+  "version": "0.1.0",
+  "description": "Learning lab: a multi-agent dev pipeline on the pi coding agent, with a Telegram human-in-the-loop bridge, a deterministic safety gate, and LLM-behaviour evals.",
+  "author": "Andrew Chernous",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "evals": "vitest run --config vitest.evals.config.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm run lint && pnpm run typecheck"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@mariozechner/pi-agent-core": "^0.73.1",
+    "@mariozechner/pi-ai": "^0.73.1",
+    "@types/node": "^26.0.0",
+    "@vitest-evals/harness-pi-ai": "^0.13.1",
+    "eslint": "^10.5.0",
+    "globals": "^17.6.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.9",
+    "vitest-evals": "^0.13.1"
+  }
+}

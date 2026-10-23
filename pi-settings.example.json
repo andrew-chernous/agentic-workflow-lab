@@ -1,0 +1,16 @@
+{
+  "_comment": "Sanitised excerpt of ~/.pi/agent/settings.json showing how the pipeline roles are pinned to models. Copy the subagents block into your own settings and adjust the provider.",
+  "packages": ["npm:pi-subagents", "npm:pi-web-access"],
+  "defaultProvider": "github-copilot",
+  "defaultModel": "claude-sonnet-5",
+  "subagents": {
+    "defaultModel": "github-copilot/claude-sonnet-5",
+    "agentOverrides": {
+      "researcher": { "model": "github-copilot/gpt-5.6-sol", "thinking": "high", "extensions": ["pi-web-access"], "inheritProjectContext": true },
+      "oracle": { "model": "github-copilot/gpt-5.6-sol", "thinking": "high", "inheritProjectContext": true },
+      "worker": { "defaultContext": "fresh", "skills": ["tdd", "codebase-design"], "inheritProjectContext": true },
+      "reviewer": { "model": "github-copilot/gpt-5.6-terra", "tools": ["read", "grep", "find", "ls", "bash", "contact_supervisor"], "skills": ["code-review", "codebase-design"], "inheritProjectContext": true }
+    },
+    "modelScope": { "enforce": true, "allow": ["github-copilot/*"] }
+  }
+}
